@@ -8,7 +8,7 @@ module.exports = {
   //   entry: path.join (__dirname, './src/index.js'),
   entry: {
     app: ['@babel/polyfill', path.join (__dirname, './src/index.js')],
-    vendor: ['react', 'react-router-dom', 'react-dom'],
+    vendor: ['react', 'react-router-dom', 'react-dom', 'redux', 'react-redux'],
   },
 
   // 输出
