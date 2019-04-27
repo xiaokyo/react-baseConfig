@@ -27,7 +27,7 @@ module.exports = {
       '@images': path.join (__dirname, 'src/images'), //images
 
       //   redux
-      '@store': path.join (__dirname, 'src/store/store'),
+      '@store': path.join (__dirname, 'src/store'),
       '@actions': path.join (__dirname, 'src/store/actions'),
       '@reducers': path.join (__dirname, 'src/store/reducers'),
     },
