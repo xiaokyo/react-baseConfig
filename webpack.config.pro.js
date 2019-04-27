@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require ('clean-webpack-plugin');
 const config = {
   ...baseConfig,
   mode: 'production',
+  devtool: 'none',
   plugins: [
     ...baseConfig.plugins,
     new CleanWebpackPlugin (), // 每次打包前清空

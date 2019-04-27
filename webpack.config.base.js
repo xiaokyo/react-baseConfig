@@ -22,9 +22,14 @@ module.exports = {
     alias: {
       // 简略引用组件路径
       '@pages': path.join (__dirname, 'src/pages'),
-      '@components': path.join (__dirname, 'src/components'),
-      '@router': path.join (__dirname, 'src/router'),
-      '@images': path.join (__dirname, 'src/images'),
+      '@components': path.join (__dirname, 'src/components'), //component
+      '@router': path.join (__dirname, 'src/router'), //router
+      '@images': path.join (__dirname, 'src/images'), //images
+
+      //   redux
+      '@store': path.join (__dirname, 'src/store/store'),
+      '@actions': path.join (__dirname, 'src/store/actions'),
+      '@reducers': path.join (__dirname, 'src/store/reducers'),
     },
   },
   module: {

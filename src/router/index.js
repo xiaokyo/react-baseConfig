@@ -23,11 +23,18 @@ const Error = loadable ({
   timeout: 10000, // 10 seconds
 });
 
+const UserInfo = loadable ({
+  loader: () => import ('@pages/userinfo'),
+  loading: Loading,
+  timeout: 10000, // 10 seconds
+});
+
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={App} />
       <Route path="/list" component={List} />
+      <Route path="/userinfo" component={UserInfo} />
       <Route component={Error} />
     </Switch>
   );
