@@ -14,8 +14,8 @@ module.exports = {
   // 输出
   output: {
     path: path.join (__dirname, 'dist'),
-    filename: 'assets/[name].[hash].js',
-    chunkFilename: 'chunks/[name].[chunkhash].js',
+    filename: 'assets/js/[name].[hash].js',
+    chunkFilename: 'assets/js/chunks/[name].[chunkhash].js',
     publicPath: '/',
   },
   resolve: {
@@ -35,14 +35,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
         },
       },
       {
-        test: /\.css$/,
+        //打包自定义的样式文件
+        test: /\.(less|css)$/,
+        include: /(src)/, //排除指定文件夹中的样式文件
         use: [
           {loader: MiniCssExtractPlugin.loader},
           {
@@ -52,7 +54,32 @@ module.exports = {
               localIdentName: '[local]--[hash:base64:5]',
             },
           },
+          // {
+          //   loader: 'px2rem-loader',
+          //   // options here
+          //   options: {
+          //     remUni: 75,
+          //     remPrecision: 8,
+          //   },
+          // },
           'postcss-loader',
+          'less-loader',
+        ],
+      },
+      {
+        // 第三方样式包的处理
+        test: /\.(less|css)$/,
+        include: /node_modules/, //排除指定文件夹中的样式文件
+        use: [
+          {loader: MiniCssExtractPlugin.loader},
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true,
+            },
+          },
         ],
       },
       {
@@ -62,6 +89,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
+              name: 'assets/images/[name].[hash].[ext]',
             },
           },
         ],
@@ -80,8 +108,8 @@ module.exports = {
     }),
     new MiniCssExtractPlugin ({
       // 压缩css
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/chunks/[id].[contenthash].css',
+      filename: 'assets/css/[name].[contenthash].css',
+      chunkFilename: 'assets/css/chunks/[id].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin (),
   ],
