@@ -1,15 +1,15 @@
-import axios from 'axios';
+export const GET_USER_INFO = "userInfo/GET_USER_INFO";
 
-export const GET_USER_INFO = 'userInfo/GET_USER_INFO';
-
-export function getUserInfo () {
+export function getUserInfo() {
   return dispatch => {
-    axios.post ('/api/user').then (res => {
-      let data = JSON.parse (res.request.responseText);
-      dispatch ({
+    setTimeout(() => {
+      dispatch({
         type: GET_USER_INFO,
-        payload: data,
+        payload: {
+          name: "intro",
+          intro: "121323132"
+        }
       });
-    });
+    }, 2000);
   };
 }
