@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const { _csslocalIdentName } = require("./config/web.config");
+const { _csslocalIdentName, appInfo } = require("./config/web.config");
 
 module.exports = {
   // 入口
@@ -95,6 +95,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: appInfo.name,
       filename: "index.html",
       template: path.join(__dirname, "public/index.html")
     }),
