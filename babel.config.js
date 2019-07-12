@@ -18,6 +18,7 @@ module.exports = {
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-class-properties",
+    ["react-hot-loader/babel"], //react-hot-loader
     [
       "react-css-modules", //样式模块化styleName
       {

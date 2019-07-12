@@ -5,6 +5,8 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const { _csslocalIdentName, appInfo } = require("./config/web.config");
 
+const DEV = process.env.NODE_ENV == "development" ? true : false;
+
 module.exports = {
   // 入口
   entry: {
@@ -46,6 +48,7 @@ module.exports = {
         test: /\.(less|css)$/,
         include: /(src)/, //指定文件夹中的样式文件
         use: [
+          "css-hot-loader",
           { loader: MiniCssExtractPlugin.loader },
           {
             loader: "css-loader",
@@ -101,8 +104,8 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       // 压缩css
-      filename: "assets/css/[name].[contenthash].css",
-      chunkFilename: "assets/css/chunks/[id].[contenthash].css"
+      filename: `assets/css/[name]${DEV ? "" : ".[contenthash]"}.css`,
+      chunkFilename: `assets/css/chunks/[id]${DEV ? "" : ".[contenthash]"}.css`
     }),
     new OptimizeCssAssetsPlugin()
   ]

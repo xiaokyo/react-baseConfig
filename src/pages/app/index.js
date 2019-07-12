@@ -8,7 +8,7 @@ const App = props => {
   const {name} = props;
   return (
     <div>
-      this is {name}
+      this is1222 {name}
       <img src={pic} />
     </div>
   );
