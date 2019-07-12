@@ -1,17 +1,12 @@
-import React from 'react';
-import pic from '@images/1.png';
+import React from "react";
 
 // style
-import "./style.css"
+import "./style.css";
 
-const App = props => {
-  const {name} = props;
+export default props => {
   return (
-    <div>
-      this is1222 {name}
-      <img src={pic} />
-    </div>
+    <>
+      <img src={require("@images/1.png")} />
+    </>
   );
 };
-
-export default App;
