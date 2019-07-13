@@ -28,6 +28,7 @@ module.exports = {
       '@router': path.join (__dirname, 'src/router'), //router
       '@images': path.join (__dirname, 'src/images'), //images
 
+      'react-dom': '@hot-loader/react-dom',
       //   redux
       '@store': path.join (__dirname, 'src/store'),
       '@actions': path.join (__dirname, 'src/store/actions'),
