@@ -1,15 +1,16 @@
-import React from "react";
-import ReactDom from "react-dom";
-import { hot } from "react-hot-loader/root";
+import {hot} from 'react-hot-loader/root';
+import React from 'react';
+import ReactDom from 'react-dom';
+
 
 // routers
-import Routes from "@router";
+import Routes from '@router';
 
 // store
-import { Provider } from "react-redux";
-import store from "@store";
+import {Provider} from 'react-redux';
+import store from '@store';
 
-const App = hot(() => {
+const App = hot (() => {
   return (
     <Provider store={store}>
       <Routes />
@@ -17,4 +18,4 @@ const App = hot(() => {
   );
 });
 
-ReactDom.render(<App />, document.getElementById("app"));
+ReactDom.render (<App />, document.getElementById ('app'));
