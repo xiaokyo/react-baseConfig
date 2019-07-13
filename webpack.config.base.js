@@ -28,7 +28,7 @@ module.exports = {
       '@router': path.join (__dirname, 'src/router'), //router
       '@images': path.join (__dirname, 'src/images'), //images
 
-      'react-dom': '@hot-loader/react-dom',
+      'react-dom': DEV ? '@hot-loader/react-dom' : 'react-dom',
       //   redux
       '@store': path.join (__dirname, 'src/store'),
       '@actions': path.join (__dirname, 'src/store/actions'),
@@ -100,7 +100,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin ({
       title: appInfo.name,
-      filename: 'index.html',
+      filename: 'app.html',
       template: path.join (__dirname, 'public/index.html'),
     }),
     new MiniCssExtractPlugin ({

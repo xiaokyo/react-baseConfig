@@ -36,9 +36,13 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --progress",
-    "pro": "cross-env NODE_ENV=prodution webpack --config webpack.config.pro.js --progress"
+    "pro": "cross-env NODE_ENV=prodution webpack --config webpack.config.pro.js --progress",
+    "pro:server": "cross-env NODE_ENV=prodution webpack --config webpack.config.server.js --progress",
+    "build": "yarn pro && yarn pro:server",
+    "start": "node ./server/index.js"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",

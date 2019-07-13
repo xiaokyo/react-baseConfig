@@ -10,7 +10,7 @@ import Routes from '@router';
 import {Provider} from 'react-redux';
 import store from '@store';
 
-const App = hot (() => {
+export const App = hot (() => {
   return (
     <Provider store={store}>
       <Routes />

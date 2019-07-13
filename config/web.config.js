@@ -4,7 +4,7 @@ module.exports = {
     port: 8000
   },
   appInfo: {
-    name: "xiaokyo she",
+    name: "xiaokyo",
     author: "xiaok"
   },
   _csslocalIdentName: "[local]--[hash:base64:5]"
